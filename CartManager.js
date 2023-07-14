@@ -36,7 +36,7 @@ export class CartManager {
     );
 
     if (productoRepetido === -1) {
-      this.carts[result].product.push({
+      this.carts[result].products.push({
         idproduct: idproduct,
         quantity: 1,
       });
