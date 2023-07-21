@@ -1,1 +1,1 @@
-[{"id":4,"title":"Nuevo product ","description":"Nuevo","price":"200   ","thumbnail":"vacio","code":"n32","stock":"25","status":true,"category":"Categoria1"},{"id":5,"title":"bowl","description":"bowl flores","price":"2000","code":"0040","stock":"15","status":true,"category":"cocina"}]
+[{"id":7,"title":"Nuevo ","description":"Nuevo","price":"10","code":"01","stock":"2","status":true,"category":"Nuevo"},{"id":8,"title":"Nuevo 2","description":"nuevo 2","price":"54","code":"900","stock":"2","status":true,"category":"nuevo"}]

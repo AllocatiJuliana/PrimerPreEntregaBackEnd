@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("http://localhost:8080/");
 
 const container = document.getElementById("containerCard");
 const guardarProduct = document.getElementById("guardar");
@@ -19,7 +19,7 @@ guardarProduct.addEventListener("click", (e) => {
     .post("http://localhost:8080/api/products", newProduct)
     .then((res) => {
       console.log(res.data);
-      renderizaProduct();
+      socket.emit("message", "hola desde el cliente");
     })
     .catch((err) => {
       console.log(err);
@@ -57,14 +57,11 @@ const deleteProduct = (id) => {
     .delete(`http://localhost:8080/api/products/${id}`)
     .then((res) => {
       console.log(res.data);
-      renderizaProduct();
     })
     .catch((err) => {
       console.log(err);
     });
 };
-
-socket.emit("message", "hola desde el cliente");
 
 socket.on("messageAll", (data) => {
   alert(data);
