@@ -1,0 +1,15 @@
+{{#if isAdmin}}
+  <h1>Eventos</h1>
+  {{#each events}}
+    <div>
+      <ul>
+        <li><b>nombre:</b>{{this.nombre}}</li>
+        <li><b>lugar:</b>{{this.lugar}}</li>
+        <li><b>precio:</b>{{this.precio}}</li>
+      </ul>
+    </div>
+  {{/each}}
+{{else}}
+
+  <div><b>Error!</b>No tienes acceso a esta informacion </div>
+{{/if}}
