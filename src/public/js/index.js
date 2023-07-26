@@ -20,6 +20,20 @@ guardarProduct.addEventListener("click", (e) => {
     .then((res) => {
       console.log(res.data);
       socket.emit("message", "hola desde el cliente");
+      if (res.data.data && res.data.data !== "Los campos son obligarios") {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+        <h5 class="card-title">${newProduct.title}</h5>
+        <p class="card-text">${newProduct.title}</p>
+        <a href="#" class="btn btn-primary" onclick="deleteProduct(${res.data.id},event)"> Eliminar Producto</a>
+        </div>
+        </div>
+        `;
+        container.appendChild(card);
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -52,11 +66,15 @@ const renderizaProduct = async () => {
 
 renderizaProduct();
 
-const deleteProduct = (id) => {
+const deleteProduct = (id, event) => {
   axios
     .delete(`http://localhost:8080/api/products/${id}`)
     .then((res) => {
       console.log(res.data);
+      if (res.data.dsg === "Producto Eliminado") {
+        const elem = event.target;
+        elem.parentNode.parentNode.parentNode.remove();
+      }
     })
     .catch((err) => {
       console.log(err);

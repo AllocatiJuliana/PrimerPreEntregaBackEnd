@@ -87,7 +87,10 @@ export default class ProductManager {
     const newProduct = JSON.stringify(this.products, null, 2);
     await fs.writeFile(this.path, newProduct);
 
-    return `producto ${title} ingresado correctamente`;
+    return {
+      id: this.id - 1,
+      msg: `producto ${title} ingresado correctamente`,
+    };
   }
 
   async getProductById(id) {

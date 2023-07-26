@@ -38,7 +38,8 @@ productsRouter.post("/", async (req, res) => {
 
   res.json({
     status: true,
-    data: result,
+    data: result.msg,
+    id: result.id,
   });
 });
 
